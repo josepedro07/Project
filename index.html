@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Painel Esquerdo (Menu e Estado) -->
+        <div class="painel-esquerdo">
+            <div class="menu-area">
+                <h2>MENU</h2>
+                <button onclick="abrirmenu('pratos')">Pratos</button>
+                <button onclick="abrirmenu('drinks')">Drinks</button>
+                <button onclick="abrirmenu('sobremesas')">Sobremesas</button>
+                <button onclick="abrirmenu('prato-dia')">Prato do Dia</button>
+            </div>
+            
+            <div id="status-pedido">
+                <p><strong>Estado</strong></p>
+                <span id="indicador-status"></span>
+                <span id="mensagem-status">Pendente</span>
+            </div>
+        </div>
+
+        <!-- Painel Direito (Selecionados, Total e Ações) -->
+        <div class="painel-direito">
+            <div class="selecionados-area">
+                <h3>OS SELECIONADOS AQUI</h3>
+                <ul id="lista-selecionados"></ul>
+            </div>
+            
+            <div class="total-area">
+                QUANTIDADE: <span id="total-quantidade">0</span> | 
+                TOTAL: R$ <span id="total-valor">0.00</span>
+            </div>
+            
+            <div class="acoes-area">
+                <button class="btn-acao" onclick="fazerPedido()">PEDIR</button>
+                <button class="btn-acao btn-cancelar" onclick="cancelarPedido()">CANCELAR</button>
+            </div>
+
+            <p class="mensagem-espera">ALGUMA MENSAGEM DE ESPERA</p>
+        </div>
+    </div>
+
+    <!-- Modal de Seleção (Permanece o mesmo) -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-titulo">Categorias</h2>
+            <div id="opcoes-menu"></div>
+            <button class="btn-fechar" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
